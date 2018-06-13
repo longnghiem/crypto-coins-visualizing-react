@@ -62,7 +62,7 @@ class App extends Component {
       })
 
     } else {
-      let sort_order = this.state.sort_order == "asc" ? "des" : "asc"
+      let sort_order = this.state.sort_order === "des" ? "asc" : "des"
       this.setState({
         coins: this.state.coins.reverse(),
         sort_order: sort_order
@@ -77,7 +77,10 @@ class App extends Component {
       <div className="App">
            <Search_bar changed={this.onInputChange}/>
            <Total_coins coin_num = {this.state.coins.length}/>
-           <Table coins={this.state.coins} sort={this.sortHandle} sorted_state={this.state.sorted_state} sort_order={this.state.sort_order}/>
+           <Table coins={this.state.coins}
+                  sort={this.sortHandle}
+                  sorted_state={this.state.sorted_state}
+                  sort_order={this.state.sort_order}/>
         </div>
     );
   }

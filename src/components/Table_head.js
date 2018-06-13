@@ -9,16 +9,13 @@ const SortingArrow = (props) =>{
       </div>
     )
 }
+
 //component table_head
 const table_head = (props) => {
 
-  let defineSortOrder = (type) => {
-    let order = (props.sort_order === "asc")
-    ? "asc"
-    : "des";
-    return (props.sorted_state  === type)
-              ? order
-              : ""
+  let defineSortOrder = (type) => { //this func return 'asc', 'des', or ''
+    let order = (props.sort_order === "asc") ? "asc" : "des"; //toggle between asc and des
+    return (props.sorted_state  === type) ? order : "" //only the targeted th is given 'asc' or 'des'
   }
 
   return (
