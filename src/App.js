@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Table from './components/Table';
-import Search_bar from './components/Search_bar';
-import Total_coins from './components/Total_coins';
+import SearchBar from './components/SearchBar';
+import TotalCoins from './components/TotalCoins';
 
 class App extends Component {
   constructor() {
@@ -11,7 +10,6 @@ class App extends Component {
     this.state = {
       coins: [],
       sorted_state: 'rank',
-      sort_order: 'asc'
     };
     this.allcoins = []
   }
@@ -30,6 +28,7 @@ class App extends Component {
     .catch(error => console.log('parsing failed', error))
   }
 
+  // SEARCH FUNCTION
   onInputChange = (e) => {
     this.setState({
       coins: this.allcoins.filter(coin => {
@@ -38,17 +37,14 @@ class App extends Component {
     })
   }
 
-  sortHandle = (type) => {
+  // SORT FUNCTION
+  sortHandler = (type) => {
     if (this.state.sorted_state !== type){
       if (type === 'name') {
         this.state.coins.sort((a,b) => {
           let nameA = a.name.toUpperCase();
           let nameB = b.name.toUpperCase();
-          if (nameA < nameB) {
-            return -1;
-          } else {
-            return 1;
-          }
+          return nameA < nameB ? -1 : 1
         })
       } else {
         this.setState({
@@ -57,30 +53,23 @@ class App extends Component {
           })
         })
       }
-      this.setState({
-        sort_order: "asc"
-      })
 
     } else {
-      let sort_order = this.state.sort_order === "des" ? "asc" : "des"
       this.setState({
         coins: this.state.coins.reverse(),
-        sort_order: sort_order
       })
     }
     this.setState({sorted_state: type})
   }
 
   render() {
-    console.log("render");
     return (
       <div className="App">
-           <Search_bar changed={this.onInputChange}/>
-           <Total_coins coin_num = {this.state.coins.length}/>
+           <SearchBar changed={this.onInputChange}/>
+           <TotalCoins coin_num = {this.state.coins.length}/>
            <Table coins={this.state.coins}
-                  sort={this.sortHandle}
-                  sorted_state={this.state.sorted_state}
-                  sort_order={this.state.sort_order}/>
+                  sort={this.sortHandler}
+                  sorted_state={this.state.sorted_state}/>
         </div>
     );
   }

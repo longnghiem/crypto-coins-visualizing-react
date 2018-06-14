@@ -1,6 +1,6 @@
 import React from 'react';
 
-const table_row = ({coin}) => {
+const tableRow = ({coin}) => {
   return (
     <tr className="table-row">
       <td>{coin.name}</td>
@@ -11,4 +11,4 @@ const table_row = ({coin}) => {
   )
 }
 
-export default table_row;
+export default tableRow;

@@ -1,22 +1,22 @@
-import React, {Component} from 'react';
-import Table_row from './Table_row';
-import Table_head from './Table_head';
+import React from 'react';
+import TableRow from './TableRow';
+import TableHead from './TableHead';
 
 const table = (props) => {
     return (
       <table id="data-table">
         <thead>
           <tr>
-            <Table_head type='name' sort={props.sort} sort_order={props.sort_order} sorted_state={props.sorted_state}/>
-            <Table_head type='price_usd' sort={props.sort} sort_order={props.sort_order} sorted_state={props.sorted_state}/>
-            <Table_head type='rank' sort={props.sort} sort_order={props.sort_order} sorted_state={props.sorted_state}/>
-            <Table_head type='percent_change_24h' sort={props.sort} sort_order={props.sort_order} sorted_state={props.sorted_state}/>
+            {['name','price_usd','rank','percent_change_24h'].map((item,i)=> { {/*any header that is not sorted will receive disabled = true */}
+                return <TableHead key={i} type={item} sort={() => props.sort(item)} disabled={item !== props.sorted_state} />
+            })
+            }
           </tr>
         </thead>
         <tbody id='table-body'>
           {props.coins.map(coin => {
             return (
-              <Table_row coin={coin} key={coin.id}/>
+              <TableRow coin={coin} key={coin.id}/>
             )
           } )}
         </tbody>

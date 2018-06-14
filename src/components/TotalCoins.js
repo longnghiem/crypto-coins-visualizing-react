@@ -1,6 +1,6 @@
 import React from 'react';
 
-const total_coins = (props) => {
+const totalCoins = (props) => {
   return (
     <div className="total-coin">
       <h3>Number of coins</h3>
@@ -9,4 +9,4 @@ const total_coins = (props) => {
   )
 }
 
-export default total_coins;
+export default totalCoins;

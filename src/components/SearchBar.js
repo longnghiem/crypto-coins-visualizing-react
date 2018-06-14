@@ -1,6 +1,6 @@
 import React from 'react';
 
-const search_bar = (props) => {
+const searchBar = (props) => {
 
   return (
     <div className="search-bar">
@@ -10,4 +10,4 @@ const search_bar = (props) => {
   )
 }
 
-export default search_bar;
+export default searchBar;
