@@ -1,14 +1,26 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const tableRow = ({coin}) => {
-  return (
-    <tr className="table-row">
-      <td>{coin.name}</td>
-      <td>{coin.price_usd}</td>
-      <td>{coin.rank}</td>
-      <td className={coin.percent_change_24h > 0 ? 'increase' : 'decrease'}>{coin.percent_change_24h}</td>
-    </tr>
-  )
+class TableRow extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  shouldComponentUpdate(nextProps) {
+    if (this.props.coin.id === nextProps.coin.id) return false;
+    return true;
+  }
+
+  render(){
+    return (
+      <tr className="table-row">
+        <td>{this.props.coin.name}</td>
+        <td>{this.props.coin.price_usd}</td>
+        <td>{this.props.coin.rank}</td>
+        <td className={this.props.coin.percent_change_24h > 0 ? 'increase' : 'decrease'}>{this.props.coin.percent_change_24h}</td>
+      </tr>
+    )
+  }
+
 }
 
-export default tableRow;
+export default TableRow;

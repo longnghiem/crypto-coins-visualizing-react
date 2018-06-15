@@ -26,7 +26,7 @@ class TableHead extends Component {
      // disabled: this.props.disabled
    })
    console.log('disabled is: ', this.props.disabled);
-   this.props.sort();
+   this.props.sort(this.props.type);
  }
 render() {
   return (

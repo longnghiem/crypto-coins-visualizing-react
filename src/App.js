@@ -39,16 +39,19 @@ class App extends Component {
 
   // SORT FUNCTION
   sortHandler = (type) => {
+    const coinCopy = [...this.state.coins];
     if (this.state.sorted_state !== type){
       if (type === 'name') {
-        this.state.coins.sort((a,b) => {
-          let nameA = a.name.toUpperCase();
-          let nameB = b.name.toUpperCase();
-          return nameA < nameB ? -1 : 1
+        this.setState({
+          coins : coinCopy.sort((a,b) => {
+            let nameA = a.name.toUpperCase();
+            let nameB = b.name.toUpperCase();
+            return nameA < nameB ? -1 : 1
+          })
         })
       } else {
         this.setState({
-          coins: this.state.coins.sort((a,b) => {
+          coins: coinCopy.sort((a,b) => {
             return a[type] - b[type];
           })
         })
@@ -56,7 +59,7 @@ class App extends Component {
 
     } else {
       this.setState({
-        coins: this.state.coins.reverse(),
+        coins: coinCopy.reverse(),
       })
     }
     this.setState({sorted_state: type})
