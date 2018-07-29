@@ -2,7 +2,7 @@
   "name": "assignment-01",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://longnghiem.github.io/cryto-react-11",
+  "homepage": "https://longnghiem.github.io/crypto-coins-visualizing-react/",
   "dependencies": {
     "gh-pages": "^1.2.0",
     "react": "^16.4.0",

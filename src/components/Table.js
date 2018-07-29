@@ -7,6 +7,7 @@ class Table extends Component {
     super(props);
   }
 
+
   render() {
   const  listOfHeading = ['name','price_usd','rank','percent_change_24h'].map((item,i)=> { {/*any header that is not sorted will receive disabled = true */}
     return <TableHead key={i} type={item} sort={this.props.sort} disabled={item !== this.props.sorted_state} />})

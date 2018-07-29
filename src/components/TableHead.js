@@ -4,7 +4,7 @@ class TableHead extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isSortedDesc: false,
+      isSortedDesc: true,
       disabled: this.props.disabled
     }
   }
@@ -25,8 +25,8 @@ class TableHead extends Component {
      isSortedDesc: nextOrder,
      // disabled: this.props.disabled
    })
-   console.log('disabled is: ', this.props.disabled);
-   this.props.sort(this.props.type);
+   // console.log('disabled is: ', this.props.disabled);
+   this.props.sort(this.props.type, this.state.isSortedDesc);
  }
 render() {
   return (

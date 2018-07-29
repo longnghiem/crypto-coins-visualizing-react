@@ -38,9 +38,10 @@ class App extends Component {
   }
 
   // SORT FUNCTION
-  sortHandler = (type) => {
-    const coinCopy = [...this.state.coins];
-    if (this.state.sorted_state !== type){
+  sortHandler = (type, isSortedDesc) => {
+    const coinCopy = [...this.state.coins]; //make a copy not pointing to the same place
+    console.log('isSortedDesc', isSortedDesc);
+    if (this.state.sorted_state !== type && !isSortedDesc){
       if (type === 'name') {
         this.setState({
           coins : coinCopy.sort((a,b) => {

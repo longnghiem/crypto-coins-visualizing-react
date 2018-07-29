@@ -1,3 +1,5 @@
+Click [here](http://longnghiem.github.io/crypto-coins-visualizing-react) to visit the page.
+
 # Project Summary
 The objective of this project is to build a Cryptocurrency Coins Visualizing Application.
 
@@ -15,15 +17,14 @@ ascending order.
 
 * Html
 * Css
-* JavaScript
-* Library: React (create-react-app)
+* JavaScript: React 16.4
 
 # Getting started
-Click [here](http://longnghiem.github.io/cryto-react-11) to visit the page.
-Or clone the project:
+
+Clone the project:
 ```
-> git clone git@github.com:longnghiem/cryto-react-11.git
-> cd cryto-react-11
+> git clone git@github.com:longnghiem/crypto-coins-visualizing-react.git
+> cd crypto-coins-visualizing-react
 ```
 Then make sure to use branch 'master':
 ```
